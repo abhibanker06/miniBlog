@@ -1,0 +1,47 @@
+/* Profile Page */
+.profile-section {
+    padding: 3rem 1rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.profile-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.profile-info .username {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-info .user-email {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.75rem;
+}
+
+.profile-info .user-bio {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    max-width: 600px;
+}
+
+.user-posts h2 {
+    margin-bottom: 2rem;
+}
+
+.js-user-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}

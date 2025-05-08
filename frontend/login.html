@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MiniBlog</div>
+            <div class="nav-links">
+                <a href="index.html"><i class="ri-arrow-left-line"></i> Back to Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="card-switch">
+                <label class="switch">
+                   <input type="checkbox" class="toggle">
+                   <span class="slider"></span>
+                   <span class="card-side"></span>
+                   <div class="flip-card__inner">
+                      <div   class="flip-card__front">
+                         <div class="title">Log in</div>
+                         <form id="loginForm" class="flip-card__form" >
+                            <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                            <input class="flip-card__input" name="password" placeholder="Password" type="password">
+                            <button class="flip-card__btn" type="submit">Let`s go!</button>
+                         </form>
+                      </div>
+                      <div  class="flip-card__back">
+                         <div class="title">Sign up</div>
+                         <form id="registerForm" class="flip-card__form" action="">
+                            <input class="flip-card__input" name="username" placeholder="Name" type="name">
+                            <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                            <input class="flip-card__input" name="password" placeholder="Password" type="password">
+                            <button class="flip-card__btn" type="submit">Confirm!</button>
+                         </form>
+                      </div>
+                   </div>
+                </label>
+            </div>   
+       </div>
+    </div>
+    
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>

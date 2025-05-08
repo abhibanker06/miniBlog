@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post - MiniBlog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MiniBlog</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="create-post.html" class="active">Write</a>
+                <a href="login.html" id="loginBtn">Login</a>
+                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="create-post-page">
+        <div class="create-post-container">
+            <h1>Create a New Post</h1>
+            
+            <form id="createPostForm">
+                <div class="form-group">
+                    <label for="postTitle">Title</label>
+                    <input type="text" id="postTitle" placeholder="Enter post title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postCategory">Category</label>
+                    <select id="postCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="technology">Technology</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="travel">Travel</option>
+                        <option value="food">Food</option>
+                        <option value="health">Health</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postImage">Featured Image URL</label>
+                    <input type="url" id="postImage" placeholder="Enter image URL">
+                </div>
+                
+                <div class="form-group">
+                    <label for="postExcerpt">Excerpt</label>
+                    <textarea id="postExcerpt" rows="2" placeholder="Brief summary of your post" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postContent">Content</label>
+                    <div class="editor-toolbar">
+                        <button type="button" data-format="bold">B</button>
+                        <button type="button" data-format="italic">I</button>
+                        <button type="button" data-format="heading">H</button>
+                        <button type="button" data-format="link">Link</button>
+                        <button type="button" data-format="code">Code</button>
+                        <button type="button" data-format="quote">Quote</button>
+                    </div>
+                    <textarea id="postContent" rows="15" placeholder="Write your post content here..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postTags">Tags</label>
+                    <input type="text" id="postTags" placeholder="Enter tags separated by commas">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="saveAsDraft">Save as Draft</button>
+                    <button type="submit" class="btn-primary">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MiniBlog</h4>
+                <p>A simple platform for sharing ideas, stories, and knowledge.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-post.html">Write a Post</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 MiniBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="js/create.js"></script>
+</body>
+</html>

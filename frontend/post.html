@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Title - MiniBlog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MiniBlog</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="create-post.html">Write</a>
+                <a href="#" id="loginBtn">Login</a>
+                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <!-- anlalfafnklanflnlafl -->
+
+    <main class="post-page">
+        <article class="post-full" id="postContent">
+            
+        </article>
+        
+        <section class="comments-section">
+            <h3>Comments</h3>
+            
+            <div class="comment-form">
+                <h4>Leave a comment</h4>
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="commentName">Name</label>
+                        <input type="text" id="commentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentEmail">Email</label>
+                        <input type="email" id="commentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentContent">Comment</label>
+                        <textarea id="commentContent" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Comment</button>
+                </form>
+            </div>
+            
+            <div class="comments-list" id="commentsList">
+                <!-- Comments will be loaded dynamically -->
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Alice Johnson</span>
+                        <span class="comment-date">May 6, 2023</span>
+                    </div>
+                    <div class="comment-content">
+                        <p>Great article! I found the section on JavaScript particularly helpful for beginners.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Bob Smith</span>
+                        <span class="comment-date">May 5, 2023</span>
+                    </div>
+                    <div class="comment-content">
+                        <p>Would love to see a follow-up article on more advanced CSS techniques!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <aside class="related-posts">
+            <h3>Related Posts</h3>
+            <div class="related-posts-grid" id="relatedPosts">
+                <!-- Related posts will be loaded dynamically -->
+                <div class="related-post">
+                    <div class="related-post-image"></div>
+                    <h4>CSS Grid Layout: A Complete Guide</h4>
+                </div>
+                
+                <div class="related-post">
+                    <div class="related-post-image"></div>
+                    <h4>JavaScript ES6 Features You Should Know</h4>
+                </div>
+                
+                <div class="related-post">
+                    <div class="related-post-image"></div>
+                    <h4>Responsive Web Design Principles</h4>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MiniBlog</h4>
+                <p>A simple platform for sharing ideas, stories, and knowledge.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-post.html">Write a Post</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 MiniBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- <script type="module" src="scripts.js"></script> -->
+    <script type="module" src="js/post.js"></script>
+</body>
+</html>

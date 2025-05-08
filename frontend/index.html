@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBlog - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MiniBlog</div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="create.html">Write</a>
+                <a href="login.html" id="loginBtn">Login</a>
+                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to MiniBlog</h1>
+            <p>A simple, elegant platform for your thoughts</p>
+        </section>
+
+        <section class="posts-container">
+            <div class="posts-header">
+                <h2>Latest Posts</h2>
+                <div class="filter">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="technology">Technology</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="travel">Travel</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="posts-grid js-post-grid" id="postsGrid">
+                <!-- Posts will be loaded dynamically -->
+                
+            </div>
+            
+            <div class="pagination">
+                <button id="loadMoreBtn">Load More</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MiniBlog</h4>
+                <p>A simple platform for sharing ideas, stories, and knowledge.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-post.html">Write a Post</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 MiniBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>

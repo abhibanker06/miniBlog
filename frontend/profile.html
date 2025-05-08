@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MiniBlog - Profile</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">MiniBlog</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="create.html">Write</a>
+                <a href="login.html" id="loginBtn">Login</a>
+                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-section container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="assets/images/default-avatar.png" alt="User Avatar" />
+                </div>
+                <div class="profile-info">
+                    <h1 class="username" id="username">John Doe</h1>
+                    <p class="user-email" id="userEmail">johndoe@example.com</p>
+                    <p class="user-bio" id="userBio">Lover of tech, coffee, and writing. Sharing thoughts on life and code.</p>
+                </div>
+            </div>
+
+            <div class="user-posts">
+                <h2>Your Posts</h2>
+                <div class="posts-grid js-user-posts">
+                    <!-- User posts will be rendered here dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MiniBlog</h4>
+                <p>A simple platform for sharing ideas, stories, and knowledge.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create.html">Write a Post</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 MiniBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/profile.js"></script>
+</body>
+</html>
