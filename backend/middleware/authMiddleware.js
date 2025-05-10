@@ -17,4 +17,4 @@ function auth(req, res, next) {
   }
 }
 
-module.exports = auth;cls
+module.exports = auth;

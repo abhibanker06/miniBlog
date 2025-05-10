@@ -1,3 +1,28 @@
+const token = localStorage.getItem("token");
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (token) {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+      } else {
+        loginBtn.style.display = "inline-block";
+        logoutBtn.style.display = "none";
+      }
+
+    // Logout with confirmation
+        logoutBtn.addEventListener("click", () => {
+            const confirmed = confirm("Are you sure you want to log out?");
+            if (confirmed) {
+            localStorage.removeItem("token");
+            window.location.href = "index.html";
+            }
+        });
+})
+
+
 const url = new URL(window.location.href);
 const postId = url.searchParams.get('PostId');
 

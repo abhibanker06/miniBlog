@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const confirmed = confirm("Are you sure you want to log out?");
             if (confirmed) {
             localStorage.removeItem("token");
-            window.location.href = ".html";
+            window.location.href = "index.html";
             }
         });
   });
