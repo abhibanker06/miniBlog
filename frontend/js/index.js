@@ -21,14 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutBtn.style.display = "none";
       }
 
-    // Logout with confirmation
-        logoutBtn.addEventListener("click", () => {
-            const confirmed = confirm("Are you sure you want to log out?");
-            if (confirmed) {
-            localStorage.removeItem("token");
-            window.location.href = "index.html";
-            }
-        });
   });
  
 

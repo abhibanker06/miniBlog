@@ -16,15 +16,14 @@
                 <a href="index.html" class="active">Home</a>
                 <a href="create.html">Write</a>
                 <a href="login.html" id="loginBtn">Login</a>
-                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
-                <a href="profile.html"><i class="ri-user-3-line"></i></a>
+                <a href="profile.html" id="logoutBtn" style="display: none;"><i class="ri-user-3-line"></i></a>
             </div>
         </nav>
     </header>
     <main>
         <section class="hero">
-            <h1>Welcome to MiniBlog</h1>
-            <p>A simple, elegant platform for your thoughts</p>
+            <h1>Hello, MiniBlogger!</h1>
+            <p>Your space to write, share, and shine</p>
         </section>
 
         <section class="posts-container">
@@ -64,7 +63,7 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="create-post.html">Write a Post</a></li>
+                    <li><a href="create.html">Write a Post</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -79,28 +78,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 MiniBlog. All rights reserved.</p>
+            <p>&copy; 2025 MiniBlog. All rights reserved.</p>
         </div>
     </footer>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit" class="btn-primary">Login</button>
-            </form>
-            <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
-        </div>
-    </div>
 
     <script type="module" src="js/index.js"></script>
 </body>
