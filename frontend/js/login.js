@@ -16,6 +16,7 @@ const registerForm = document.getElementById("registerForm");
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
         alert("Login successful!");
         window.location.href = "index.html"; // redirect to homepage
       } else {

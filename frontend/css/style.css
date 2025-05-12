@@ -121,11 +121,12 @@ header {
 .hero {
     text-align: center;
     padding: 4rem 1rem;
-    background-color: var(--light-gray);
+    background: var(--light-gray);
 }
 
 .hero h1 {
     margin-bottom: 1rem;
+    /* color: white; */
 }
 
 .hero p {
@@ -200,7 +201,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 0.25rem 0.5rem;
-    background-color: var(--light-gray);
+    background: var(--light-gray);
     border-radius: 4px;
     margin-bottom: 0.75rem;
 }
@@ -247,7 +248,7 @@ header {
 
 /* Footer */
 footer {
-    background-color: var(--light-gray);
+    background: var(--light-gray);
     padding: 3rem 1rem 1rem;
     margin-top: 2rem;
 }
@@ -370,7 +371,7 @@ footer {
 }
 
 .btn-secondary:hover {
-    background-color: var(--light-gray);
+    background: var(--light-gray);
 }
 
 /* Single Post Page */
@@ -408,7 +409,7 @@ footer {
 }
 
 .post-body pre {
-    background-color: var(--light-gray);
+    background: var(--light-gray);
     padding: 1.5rem;
     border-radius: 8px;
     overflow-x: auto;
@@ -524,7 +525,7 @@ footer {
 }
 
 .editor-toolbar button:hover {
-    background-color: var(--light-gray);
+    background: var(--light-gray);
 }
 
 .form-actions {

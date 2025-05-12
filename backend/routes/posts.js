@@ -72,4 +72,15 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// GET /posts/user/:userId - Get posts by a specific user
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const posts = await Post.find({ author: req.params.userId }).populate('author', 'username');
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 module.exports = router;

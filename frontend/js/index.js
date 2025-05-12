@@ -1,3 +1,5 @@
+import { limitWords } from "./utils/limitwords.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:5000/posts')
       .then((res) => res.json())
@@ -29,15 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   });
  
+
+
 function displayPosts(posts){
     let postHTML='';
     posts.slice().reverse().forEach((details)=>{
         const postImage = details.image || 'assets/images/noimage.jpg';
-        function limitWords(text, limit) {
-            const words = text.split(" ");
-            return words.slice(0, limit).join(" ") + (words.length > limit ? "..." : "");
-          }
-        
         const excerpt=limitWords(details.excerpt,20);
           
 
