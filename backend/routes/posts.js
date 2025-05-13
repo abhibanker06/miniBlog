@@ -82,5 +82,21 @@ router.get('/user/:userId', async (req, res) => {
   }
 });
 
+// GET /posts/related/:postId
+router.get('/related/:postId', async (req, res) => {
+  try {
+    const currentPost = await Post.findById(req.params.postId);
+    if (!currentPost) return res.status(404).json({ error: "Post not found" });
+
+    const relatedPosts = await Post.find({
+      category: currentPost.category,
+      _id: { $ne: currentPost._id }, // exclude current post
+    }).limit(3); 
+
+    res.json(relatedPosts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 module.exports = router;

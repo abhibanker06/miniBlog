@@ -15,7 +15,7 @@ router.get('/:postId', async (req, res) => {
 
 // POST /comments - Add a new comment
 router.post('/', async (req, res) => {
-  const { content, author, postId } = req.body;
+  const { content, author, postId } = req.body; 
   try {
     const newComment = new Comment({ content, author, postId });
     await newComment.save();

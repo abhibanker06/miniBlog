@@ -31,8 +31,6 @@ function displayPosts(posts){
         const postImage = details.image || 'assets/images/noimage.jpg';
         const excerpt=limitWords(details.excerpt,20);
           
-
-
         postHTML+=`
         <article class="post-card" >
             <a href="post.html?PostId=${details._id}">

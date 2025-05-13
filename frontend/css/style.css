@@ -30,7 +30,7 @@ body {
 }
 
 a {
-    color: var(--primary);
+    color: var(--dark);
     text-decoration: none;
     transition: color var(--light);
 }
@@ -240,6 +240,10 @@ header {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     color: var(--dark);
+    transition: 0.4s ease;
+}
+.post-title:hover{
+    color: var(--primary-dark);
 }
 
 .post-excerpt {
@@ -500,14 +504,26 @@ footer {
 }
 
 .related-post {
+    height: 230px;
     border: 1px solid var(--gray-light);
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+.related-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .related-post-image {
     height: 120px;
     background-color: white;
+}
+.related-post-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .related-post h4 {
