@@ -357,10 +357,11 @@ footer {
     border-radius: var(--radius);
     font-family: var(--font-family);
     font-size: 1rem;
+    outline: none;
 }
 
 .form-group textarea {
-    resize: vertical;
+    resize: none;
 }
 
 .btn-primary {
