@@ -1,4 +1,5 @@
 const token = localStorage.getItem("token");
+let quill;
 
 document.addEventListener('DOMContentLoaded',()=>{
   const loginBtn = document.getElementById("loginBtn");
@@ -11,6 +12,20 @@ document.addEventListener('DOMContentLoaded',()=>{
         loginBtn.style.display = "inline-block";
         logoutBtn.style.display = "none";
       }
+
+      quill = new Quill('#quillEditor', {
+        theme: 'snow',
+        placeholder: 'Write your post content here...',
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'blockquote', 'code-block'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            ['link', 'image'],
+            ['clean']
+          ]
+        }
+      });
 })
 
 
@@ -21,7 +36,7 @@ document.getElementById("createPostForm").addEventListener("submit", async funct
     const category = document.getElementById("postCategory").value;
     const image = document.getElementById("postImage").value;
     const excerpt = document.getElementById("postExcerpt").value;
-    const content = document.getElementById("postContent").value;
+    const content = quill.root.innerHTML;
     const tags = document.getElementById("postTags").value;
   
 

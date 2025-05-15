@@ -380,22 +380,6 @@ footer {
     background-color: var(--primary-dark);
 }
 
-.btn-secondary {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
-    color: white;
-    border: 1px solid var(--gray-light);
-    border-radius: var(--radius);
-    font-family: var(--font-family);
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-dark);
-}
-
 /* Single Post Page */
 .post-page {
     max-width: 800px;

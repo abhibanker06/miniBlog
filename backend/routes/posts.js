@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
 
 // POST /posts - Create a new post (only for logged-in users)
 router.post('/', auth, async (req, res) => {
-  console.log("Decoded user:", req.user); // Log to verify the token is working
 
   const { title, content, category, image, excerpt, tags } = req.body;
   
