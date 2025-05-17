@@ -174,7 +174,7 @@ header {
     margin-bottom: 2rem;
 }
 
-.filter select {
+/* .filter select {
     padding: 0.6rem 1rem;
     border: 1px solid var(--gray-light);
     border-radius: var(--radius);
@@ -184,7 +184,25 @@ header {
     color: var(--dark);
     cursor: pointer;
     transition: var(--transition);
-}
+} */
+
+ .search input{
+    width: 440px;
+    padding: 8px 13px;
+    border-radius:15px;
+    outline: none;
+    border: 1px solid var(--gray);
+    font-size: 16px;
+    color: var(--dark);
+ }
+
+ .search ::placeholder{
+    color: var(--gray);
+ }
+
+ .search input:focus{
+    border: 2px solid var(--primary);
+ }
 
 /* Posts Grid */
 .posts-grid {

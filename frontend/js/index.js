@@ -6,6 +6,7 @@ const postsPerLoad = 6;
 
 document.addEventListener('DOMContentLoaded', () => {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const searchInput = document.getElementById("searchInput");
 
   // Fetch posts from backend
   fetch('http://localhost:5000/posts')
@@ -31,6 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load more button handler
   loadMoreBtn.addEventListener("click", displayNextPosts);
+
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const filteredPosts = allPosts.filter(post =>
+        post.title.toLowerCase().includes(searchTerm) ||
+        post.excerpt.toLowerCase().includes(searchTerm) ||
+        post.category.toLowerCase().includes(searchTerm)
+      );
+      displayPosts(filteredPosts);
+    }
+  });
 });
 
 // Display posts in chunks
@@ -67,8 +80,51 @@ function displayNextPosts() {
 
   visiblePosts += postsPerLoad;
 
+
   // Hide button if all posts are displayed
   if (visiblePosts >= allPosts.length) {
     loadMoreBtn.style.display = "none";
   }
 }
+
+function displayPosts(posts) {
+  const postsGrid = document.getElementById("postsGrid");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  postsGrid.innerHTML = ""; // Clear existing posts
+  loadMoreBtn.style.display = "none"; // Hide "Load More" during search results
+
+  if (posts.length === 0) {
+    postsGrid.innerHTML = "<p>No posts available for your search.</p>";
+    return;
+  }
+
+  posts.forEach((details) => {
+    const postImage = details.image || 'assets/images/noimage.jpg';
+    const excerpt = limitWords(details.excerpt, 20);
+
+    const postHTML = `
+      <article class="post-card">
+        <a href="post.html?PostId=${details._id}">
+          <div class="post-image">
+            <img class="product-image" src="${postImage}">
+          </div>
+          <div class="post-content">
+            <div class="post-category">${details.category}</div>
+            <h3 class="post-title">${details.title}</h3>
+            <p class="post-excerpt">${excerpt}</p>
+            <div class="post-meta">
+              <span class="post-author">${details.author?.username || 'Unknown'}</span>
+              <span class="post-date">${new Date(details.createdAt).toLocaleDateString()}</span>
+            </div>
+          </div>
+        </a>     
+      </article>
+    `;
+
+    postsGrid.insertAdjacentHTML("beforeend", postHTML);
+  });
+}
+
+
+
