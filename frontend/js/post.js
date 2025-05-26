@@ -22,7 +22,7 @@ const postId = url.searchParams.get('PostId');
 async function renderPost() {
 
   try {
-    const res = await fetch(`http://localhost:5000/posts/${postId}`);
+    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/${postId}`);
     const post = await res.json();
 
     const postImage = post.image || "assets/images/noimage.jpg";
@@ -66,7 +66,7 @@ async function renderPost() {
 
 async function loadComments() {
   try {
-    const res = await fetch(`http://localhost:5000/comments/${postId}`);
+    const res = await fetch(`https://miniblog-iwf4.onrender.com/comments/${postId}`);
     const comments = await res.json();
 
     const commentsList = document.getElementById('commentsList');
@@ -113,7 +113,7 @@ commentForm.addEventListener("submit", async (e) => {
     }
 
   try {
-    const res = await fetch("http://localhost:5000/comments", {
+    const res = await fetch("https://miniblog-iwf4.onrender.com/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -136,7 +136,7 @@ commentForm.addEventListener("submit", async (e) => {
 async function loadRelatedPosts() {
   try {
     // First, try to fetch related posts based on category or other criteria
-    const res = await fetch(`http://localhost:5000/posts/related/${postId}`);
+    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/related/${postId}`);
     const relatedPosts = await res.json();
 
     const relatedPostsContainer = document.getElementById('relatedPosts');
@@ -149,7 +149,7 @@ async function loadRelatedPosts() {
 
       related.style.display='none';
       notrelated.style.display='inline-block';
-      const latestRes = await fetch('http://localhost:5000/posts');
+      const latestRes = await fetch('https://miniblog-iwf4.onrender.com/posts');
       const latestPosts = await latestRes.json();
 
       if (latestPosts.length > 0) {

@@ -49,7 +49,7 @@ document.getElementById("createPostForm").addEventListener("submit", async funct
     }
   
     try {
-      const res = await fetch("http://localhost:5000/posts", {
+      const res = await fetch("https://miniblog-iwf4.onrender.com/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

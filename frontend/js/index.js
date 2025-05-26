@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById("searchInput");
 
   // Fetch posts from backend
-  fetch('http://localhost:5000/posts')
+  fetch('https://miniblog-iwf4.onrender.com/posts')
     .then((res) => res.json())
     .then((posts) => {
       allPosts = posts.reverse(); // Reverse to show latest first

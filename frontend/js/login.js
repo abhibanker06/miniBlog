@@ -8,7 +8,7 @@ const registerForm = document.getElementById("registerForm");
     const password = loginForm.password.value;
 
     try {
-      const res = await fetch("http://localhost:5000/auth/login", {
+      const res = await fetch("https://miniblog-iwf4.onrender.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
@@ -35,7 +35,7 @@ const registerForm = document.getElementById("registerForm");
     const password = registerForm.password.value;
 
     try {
-      const res = await fetch("http://localhost:5000/auth/register", {
+      const res = await fetch("https://miniblog-iwf4.onrender.com/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password })

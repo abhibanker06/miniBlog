@@ -37,7 +37,7 @@ document.getElementById("userEmail").textContent = user.email;
 // Fetch and display user's posts
 async function fetchUserPosts() {
   try {
-    const res = await fetch(`http://localhost:5000/posts/user/${user.id}`);
+    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/user/${user.id}`);
     const posts = await res.json();
 
     
