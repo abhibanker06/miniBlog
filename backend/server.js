@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
-
 // Routes
 const postRoutes = require('./routes/posts');
 app.use('/posts', postRoutes);
@@ -27,5 +26,6 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 }).then(() => {
   console.log("Connected to MongoDB");
-  app.listen(5000, () => console.log("Server running on port 5000"));
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }).catch((err) => console.error(err));

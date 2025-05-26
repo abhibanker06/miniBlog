@@ -1,1 +1,17 @@
-text.txt
+# Node.js dependencies
+backend/node_modules/
+
+# Environment variables
+backend/.env
+
+# Logs
+*.log
+
+# OS-specific files
+Thumbs.db
+
+# Vercel deployment config
+backend/.vercel/
+
+
+
