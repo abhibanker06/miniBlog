@@ -10,6 +10,8 @@ const app = express();
 // Enable trust proxy for services like Render
 app.set('trust proxy', true);
 
+const allowedOrigins = ['https://miniblog-okfa.onrender.com'];
+
 // Basic, open CORS (optional: you can restrict it later if needed)
 app.use(cors({
   origin: function (origin, callback) {
