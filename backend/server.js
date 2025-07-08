@@ -9,24 +9,8 @@ const app = express();
 // Enable trust proxy for services like Render
 app.set('trust proxy', true);
 
-// Secure and flexible CORS configuration
-const allowedOrigins = [
-  'https://miniblog-okfa.onrender.com', // your frontend
-  // add other trusted origins here if needed
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (e.g., monitoring tools like UptimeRobot)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
+// Basic, open CORS (optional: you can restrict it later if needed)
+app.use(cors());
 
 // Body parsers
 app.use(express.json({ limit: '20mb' }));
@@ -41,14 +25,6 @@ app.use('/comments', commentRoutes);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
-
-// CORS error handler (optional but useful for debugging)
-app.use((err, req, res, next) => {
-  if (err.message === 'Not allowed by CORS') {
-    return res.status(403).json({ message: 'CORS error: Origin not allowed' });
-  }
-  next(err);
-});
 
 // MongoDB Connection and Server Start
 mongoose.connect(process.env.MONGO_URI, {
