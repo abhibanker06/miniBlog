@@ -3,33 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-const rateLimit = require('express-rate-limit');
 
 const app = express();
 
 // Enable trust proxy for services like Render
 app.set('trust proxy', true);
-
-const allowedOrigins = ['https://miniblog-okfa.onrender.com'];
-
-// Basic, open CORS (optional: you can restrict it later if needed)
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // safe to leave on even if you're not using cookies
-}));
-
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 30, // max 30 requests per IP per minute
-  message: 'Too many requests. Please try again later.',
-});
-app.use(limiter);
+app.use(cors());
 
 // Body parsers
 app.use(express.json({ limit: '20mb' }));
