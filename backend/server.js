@@ -17,19 +17,18 @@ app.use(cors({
 }));
 app.options('*', cors()); // Handle pre-flight requests
 
-const postRoutes = require('./routes/posts');
-app.use('/posts', postRoutes);
-
-const commentRoutes = require('./routes/comments');
-app.use('/comments', commentRoutes);
-
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
-
-// Body parsers
+// ✅ Body parsers FIRST
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
+// ✅ Route imports and usage AFTER parsers
+const postRoutes = require('./routes/posts');
+const commentRoutes = require('./routes/comments');
+const authRoutes = require('./routes/auth');
+
+app.use('/posts', postRoutes);
+app.use('/comments', commentRoutes);
+app.use('/auth', authRoutes);
 
 // MongoDB Connection and Server Start
 mongoose.connect(process.env.MONGO_URI, {
