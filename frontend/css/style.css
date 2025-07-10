@@ -293,12 +293,14 @@ header {
     color:#a0aec0;
     font-weight: bold;
     cursor: wait;
+    border: 2px dashed #a0aec0;
 }
 #loadMoreBtn.error{
     background-color: transparent !important;
     color: var(--secondary);
     font-weight: bold;
     cursor: not-allowed;
+    border: 2px dashed var(--secondary);
 }
 
 /* Footer */

@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', async() => {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const searchInput = document.getElementById("searchInput");
 
-  loadMoreBtn.textContent='Please wait,loading content...';
-  loadMoreBtn.classList.add('loading');
-  loadMoreBtn.disabled=true;
 
+  const delay=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
   // Fetch posts from backend
   try{
     const res= await fetch('https://miniblog-iwf4.onrender.com/posts');
     const posts = await res.json();
+
+    await delay(600);
 
     allPosts=posts.reverse();
     displayNextPosts();
