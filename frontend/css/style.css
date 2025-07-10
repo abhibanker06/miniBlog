@@ -174,18 +174,6 @@ header {
     margin-bottom: 2rem;
 }
 
-/* .filter select {
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--gray-light);
-    border-radius: var(--radius);
-    background-color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: var(--dark);
-    cursor: pointer;
-    transition: var(--transition);
-} */
-
  .search input{
     width: 440px;
     padding: 8px 13px;
@@ -298,6 +286,19 @@ header {
 
 .pagination button:hover {
     background-color: var(--primary-dark);
+}
+
+#loadMoreBtn.loading{
+    background-color: transparent !important;
+    color:#a0aec0;
+    font-weight: bold;
+    cursor: wait;
+}
+#loadMoreBtn.error{
+    background-color: transparent !important;
+    color: var(--secondary);
+    font-weight: bold;
+    cursor: not-allowed;
 }
 
 /* Footer */

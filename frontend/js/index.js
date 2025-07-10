@@ -4,19 +4,31 @@ let allPosts = [];
 let visiblePosts = 0;
 const postsPerLoad = 6;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async() => {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const searchInput = document.getElementById("searchInput");
 
-  // Fetch posts from backend
-  fetch('https://miniblog-iwf4.onrender.com/posts')
-    .then((res) => res.json())
-    .then((posts) => {
-      allPosts = posts.reverse(); // Reverse to show latest first
-      displayNextPosts(); // Show initial 6 posts
-    })
-    .catch((err) => console.error('Failed to load posts:', err));
+  loadMoreBtn.textContent='Please wait,loading content...';
+  loadMoreBtn.classList.add('loading');
+  loadMoreBtn.disabled=true;
 
+  // Fetch posts from backend
+  try{
+    const res= await fetch('https://miniblog-iwf4.onrender.com/posts');
+    const posts = await res.json();
+
+    allPosts=posts.reverse();
+    displayNextPosts();
+
+    loadMoreBtn.textContent='Load More';
+    loadMoreBtn.classList.remove('loading');
+    loadMoreBtn.disabled=false;
+    }catch (err){
+      console.error('Falied to load posts',err);
+      loadMoreBtn.textContent='Falied to load posts';
+      loadMoreBtn.classList.add('error');
+      loadMoreBtn.disabled=true;
+    }
   // Show/hide login/logout button
   const token = localStorage.getItem("token");
   const loginBtn = document.getElementById("loginBtn");
