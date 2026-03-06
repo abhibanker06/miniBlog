@@ -5,7 +5,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.set('trust proxy', true);
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' })
