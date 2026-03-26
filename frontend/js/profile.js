@@ -1,4 +1,5 @@
 import { limitWords } from "./utils/limitwords.js";
+import { API_URL } from "./config.js";
 
 const token = localStorage.getItem("token");
 
@@ -37,7 +38,7 @@ document.getElementById("userEmail").textContent = user.email;
 // Fetch and display user's posts
 async function fetchUserPosts() {
   try {
-    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/user/${user.id}`);
+    const res = await fetch(`${API_URL}/posts/user/${user.id}`);
     const posts = await res.json();
 
     

@@ -1,4 +1,5 @@
 import { limitWords } from "./utils/limitwords.js";
+import { API_URL } from "./config.js";
 
 let allPosts = [];
 let visiblePosts = 0;
@@ -9,13 +10,10 @@ document.addEventListener('DOMContentLoaded', async() => {
   const searchInput = document.getElementById("searchInput");
 
 
-  const delay=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
   // Fetch posts from backend
   try{
-    const res= await fetch('https://miniblog-iwf4.onrender.com/posts');
+    const res= await fetch(`${API_URL}/posts`);
     const posts = await res.json();
-
-    await delay(600);
 
     allPosts=posts.reverse();
     displayNextPosts();

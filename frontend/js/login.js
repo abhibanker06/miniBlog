@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js";
+
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 
@@ -8,7 +10,7 @@ const registerForm = document.getElementById("registerForm");
     const password = loginForm.password.value;
 
     try {
-      const res = await fetch("https://miniblog-iwf4.onrender.com/auth/login", {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
@@ -35,7 +37,7 @@ const registerForm = document.getElementById("registerForm");
     const password = registerForm.password.value;
 
     try {
-      const res = await fetch("https://miniblog-iwf4.onrender.com/auth/register", {
+      const res = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password })

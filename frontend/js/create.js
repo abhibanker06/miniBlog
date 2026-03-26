@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js";
+
 const token = localStorage.getItem("token");
 let quill;
 
@@ -49,7 +51,7 @@ document.getElementById("createPostForm").addEventListener("submit", async funct
     }
   
     try {
-      const res = await fetch("https://miniblog-iwf4.onrender.com/posts", {
+      const res = await fetch(`${API_URL}/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

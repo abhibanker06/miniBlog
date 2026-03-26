@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js";
+
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
 const userId = user?.id;
@@ -22,7 +24,7 @@ const postId = url.searchParams.get('PostId');
 async function renderPost() {
 
   try {
-    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/${postId}`);
+    const res = await fetch(`${API_URL}/posts/${postId}`);
     const post = await res.json();
 
     const postImage = post.image || "assets/images/noimage.jpg";
@@ -66,7 +68,7 @@ async function renderPost() {
 
 async function loadComments() {
   try {
-    const res = await fetch(`https://miniblog-iwf4.onrender.com/comments/${postId}`);
+    const res = await fetch(`${API_URL}/comments/${postId}`);
     const comments = await res.json();
 
     const commentsList = document.getElementById('commentsList');
@@ -113,7 +115,7 @@ commentForm.addEventListener("submit", async (e) => {
     }
 
   try {
-    const res = await fetch("https://miniblog-iwf4.onrender.com/comments", {
+    const res = await fetch(`${API_URL}/comments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -136,7 +138,7 @@ commentForm.addEventListener("submit", async (e) => {
 async function loadRelatedPosts() {
   try {
     // First, try to fetch related posts based on category or other criteria
-    const res = await fetch(`https://miniblog-iwf4.onrender.com/posts/related/${postId}`);
+    const res = await fetch(`${API_URL}/posts/related/${postId}`);
     const relatedPosts = await res.json();
 
     const relatedPostsContainer = document.getElementById('relatedPosts');
@@ -149,7 +151,7 @@ async function loadRelatedPosts() {
 
       related.style.display='none';
       notrelated.style.display='inline-block';
-      const latestRes = await fetch('https://miniblog-iwf4.onrender.com/posts');
+      const latestRes = await fetch(`${API_URL}/posts`);
       const latestPosts = await latestRes.json();
 
       if (latestPosts.length > 0) {
