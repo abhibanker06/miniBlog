@@ -1,1 +1,1 @@
-export const API_URL = "https://miniblog-production-acba.up.railway.app";
+export const API_URL = "https://miniblog-d6pt.onrender.com";
