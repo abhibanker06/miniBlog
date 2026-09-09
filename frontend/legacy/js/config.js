@@ -1,1 +1,0 @@
-export const API_URL = "https://miniblog-d6pt.onrender.com";
