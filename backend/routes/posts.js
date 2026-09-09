@@ -47,23 +47,43 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// PUT /posts/:id - Update post
-router.put('/:id', async (req, res) => {
+// PUT /posts/:id - Update post (only author)
+router.put('/:id', auth, async (req, res) => {
   try {
-    const updatedPost = await Post.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+
+    if (post.author.toString() !== req.user.id) {
+      return res.status(403).json({ error: 'Unauthorized to edit this post' });
+    }
+
+    const { title, content, category, image, excerpt, tags } = req.body;
+    if (title !== undefined) post.title = title;
+    if (content !== undefined) post.content = content;
+    if (category !== undefined) post.category = category;
+    if (image !== undefined) post.image = image;
+    if (excerpt !== undefined) post.excerpt = excerpt;
+    if (tags !== undefined) {
+      post.tags = Array.isArray(tags) ? tags : tags.split(',').map(tag => tag.trim());
+    }
+
+    const updatedPost = await post.save();
     res.json(updatedPost);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 });
 
-// DELETE /posts/:id - Delete post
-router.delete('/:id', async (req, res) => {
+// DELETE /posts/:id - Delete post (only author)
+router.delete('/:id', auth, async (req, res) => {
   try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+
+    if (post.author.toString() !== req.user.id) {
+      return res.status(403).json({ error: 'Unauthorized to delete this post' });
+    }
+
     await Post.findByIdAndDelete(req.params.id);
     res.json({ message: 'Post deleted' });
   } catch (err) {
