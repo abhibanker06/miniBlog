@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getPostById, updatePost } from '../api/posts';
 import { useAuth } from '../context/AuthContext';
@@ -32,8 +32,8 @@ const EditPostPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [imagePreviewError, setImagePreviewError] = useState(false);
+  const [content, setContent] = useState('');
 
-  const editorRef = useRef(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -54,10 +54,7 @@ const EditPostPage = () => {
         setImageUrl(data.image || '');
         setExcerpt(data.excerpt || '');
         setTags(Array.isArray(data.tags) ? data.tags.join(', ') : data.tags || '');
-
-        if (editorRef.current) {
-          editorRef.current.innerHTML = data.content || '';
-        }
+        setContent(data.content || '');
       } catch (err) {
         console.error('Failed to load post for editing:', err);
         toast.error('Could not load story data');
@@ -70,23 +67,12 @@ const EditPostPage = () => {
     fetchPost();
   }, [id, user, navigate]);
 
-  // Set editor content once ready
-  const setContentInitially = (node) => {
-    if (node && !editorRef.current) {
-      editorRef.current = node;
-    }
+ const formatText = (command, value = null) => {
+  document.execCommand(command, false, value);
   };
-
-  const formatText = (command, value = null) => {
-    document.execCommand(command, false, value);
-    if (editorRef.current) {
-      editorRef.current.focus();
-    }
-  };
-
+  
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const contentHtml = editorRef.current?.innerHTML || '';
 
     if (!title.trim()) {
       toast.error('Please enter a title');
@@ -99,12 +85,13 @@ const EditPostPage = () => {
 
     try {
       setSaving(true);
+      
       await updatePost(id, {
         title: title.trim(),
         category,
         image: imageUrl.trim() || undefined,
         excerpt: excerpt.trim(),
-        content: contentHtml,
+        content: content,
         tags: tags.trim(),
       });
 
@@ -302,8 +289,9 @@ const EditPostPage = () => {
             </div>
 
             <div
-              ref={setContentInitially}
               contentEditable
+              dangerouslySetInnerHTML={{ __html: content }}
+              onInput={(e) => setContent(e.currentTarget.innerHTML)}
               className="min-h-[300px] p-5 bg-white border border-t-0 border-slate-200 rounded-b-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 prose prose-slate max-w-none text-slate-800"
               style={{ minHeight: '300px' }}
             />
